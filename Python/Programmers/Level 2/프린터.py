@@ -28,6 +28,7 @@ def solution(priorities, location):
     answer = 0
 
     queue = deque([(v, i) for i, v in enumerate(priorities)])
+    # 모든 우선순위를 계산하는 것이 아닌 중간에 원하는 location이 있을 때까지만 반복
     while True:
         item = queue.popleft() # 처음 요소부터 pop, 최대값이면 pop 후 append 연산 진행 안함
 
