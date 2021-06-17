@@ -1,3 +1,26 @@
+# 짝수일 경우 2진수 값은 항상 0으로 끝나기 때문에 그 다음 제일 작은 수는 +1한 값이다.
+# 홀수일 경우 2진수 값은 항상 1로 끝나기 때문에 그 다음 제일 작은 수는 오른쪽에서부터 0 값을 찾아 0을 1로 1을 0으로 바꾸면 제일 작은 수가 됨
+
+def solution(numbers):
+    answer = []
+    for number in numbers:
+        if number % 2 == 0: # 짝수일 경우 제일 작은 수는 +1 한 값
+            answer.append(number + 1)
+        else: # 홀수일 경우
+            binary = bin(number)[2:] # 숫자를 2진수로 변환
+            idx = binary.rfind("0") # 오른쪽에서부터 0값을 찾음
+            if idx == -1: # 0을 찾지 못했다면
+                binary = "0" + binary # 제일 앞에 0을 붙이고
+                binary = list(binary) # 리스트 변환 후
+                binary[0], binary[1] = "1", "0" # 0을 1로 그 다음 1을 0으로 변환
+            else: # 0을 찾았다면
+                binary = list(binary) # 바로 리스트 변환 후
+                binary[idx], binary[idx + 1] = "1", "0" # 0을 1로 그 다음 1을 0으로 변환
+            
+            answer.append(int("".join(binary), 2)) # 2진수 값을 10진수로 변환
+                    
+    return answer
+
 # def solution(numbers):
 #     answer = []
 #     for number in numbers:
