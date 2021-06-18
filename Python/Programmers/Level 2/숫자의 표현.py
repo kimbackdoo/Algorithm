@@ -17,3 +17,19 @@ def solution(n):
         idx += 1 # 숫자가 연속해서 커져야하므로 idx += 1
     
     return answer + 1 # 이분 탐색이므로 마지막 n은 체크를 안함 따라서 +1
+
+# 이중 반복문 사용하여 비교
+# def solution(n):
+#     answer, idx = 0, 1
+#     while idx <= n:
+#         tmp = 0
+#         for i in range(idx, n+1): # idx부터 n까지 연속된 자연수의 합이 n이 되는지 체크
+#             tmp += i
+#             if tmp > n: # tmp가 n과 같아지지 않고 크다면 break
+#                 break
+#             elif tmp == n: # tmp가 n과 같아진다면 answer 값 1 증가시키고 break
+#                 answer += 1
+#                 break
+#         idx += 1 # idx값 +1 증가시켜서 연속된 자연수를 모두 파악
+
+#     return answer
