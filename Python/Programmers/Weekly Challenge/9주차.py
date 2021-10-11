@@ -119,7 +119,7 @@ def bfs(n, graph, v, check):
     while queue:
         v = queue.popleft()
         for i in graph[v]:
-            if not visited[i] and (not check[v] or not check[i]): # i를 방문하지 않았고, v나 i 중에 전선이 끊어지지 않았으면
+            if not visited[i] and not check[i]: # i를 방문하지 않았고, v와 연결된 i가 전선이 끊어지지 않았으면
                 queue.append(i)
                 visited[i] = True
                 cnt += 1
@@ -135,9 +135,9 @@ def solution(n, wires):
     
     answer = 100
     for v1, v2 in wires:
-        check[v1] = check[v2] = True # 전선이 끊어졌으면 True로 표현
+        check[v2] = True # 전선이 끊어졌으면 True로 표현, v1과 연결된 부분만 bfs 탐색을 진행하므로 v2를 True로 변환하여 전선이 끊어진 것을 표현
         cnt = bfs(n, graph, v1, check)
         answer = min(answer, abs(n - cnt * 2))
-        check[v1] = check[v2] = False # 끊어진 전선을 원상복구
+        check[v2] = False # 끊어진 전선을 원상복구
     
     return answer
