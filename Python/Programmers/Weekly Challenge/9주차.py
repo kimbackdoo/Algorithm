@@ -139,5 +139,5 @@ def solution(n, wires):
         cnt = bfs(n, graph, v1, check)
         answer = min(answer, abs(n - cnt * 2))
         check[v2] = False # 끊어진 전선을 원상복구
-    
+   
     return answer
