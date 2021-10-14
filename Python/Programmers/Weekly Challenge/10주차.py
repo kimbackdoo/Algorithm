@@ -79,7 +79,7 @@ def solution(line):
                 y = ((e * c) - (a * f)) // div
                 maxX, minX, maxY, minY = max(maxX, x), min(minX, x), max(maxY, y), min(minY, y) # x, y의 최소, 최대값을 구함
                 coords.add((x, y)) # 좌표 저장
-    
+   
     answer = [["."] * (maxX - minX + 1) for _ in range(maxY - minY + 1)] # 리스트 컴프리헨션을 이용하여 초기 격자판 설정
     for x, y in coords:
         answer[maxY - y][x - minX] = "*" # 좌표를 격자판의 인덱스로 변환 후 해당 요소 "*"로 변환
