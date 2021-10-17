@@ -33,8 +33,10 @@ def dfs(idx, total):
 
   if idx == n: # idx가 numbers의 길이가 된다면 return, 즉, 재귀 탈출
     return
-
-  if total + numbers[idx] == s: # TODO total == s가 아니라 total + numbers[idx] == s 인 이유 다시 확인할 것
+  
+  # total은 numbers의 부분수열의 합이 되어야 하므로 최소 numbers의 요소가 한개 이상의 합이 되어야 한다.
+  # 따라서 total의 초기값은 0이므로 부분수열의 합이 s가 되는지 확인하기 위해서는 total == s가 아닌 total + numbers[idx] == s가 되어야 한다.
+  if total + numbers[idx] == s:
     cnt += 1
 
   dfs(idx + 1, total) # idx번째 요소를 뽑지 않는 경우
