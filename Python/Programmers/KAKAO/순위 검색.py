@@ -82,13 +82,13 @@ def solution(info, query):
     answer = []
     for q in query:
         que = q.replace("and", "").split() # q에서 and를 없애고 리스트로 변환
-        # 
+        # 점수와 점수가 아닌 부분으로 나눔
         score = int(que[-1])
         que = " ".join(que[:-1])
-        if que in db:
-            idx = binary_search(db[que], score)
-            answer.append(len(db[que]) - idx)
-        else:
-            answer.append(0)
+        if que in db: # 점수가 아닌 부분이 db의 키로 있다면
+            idx = binary_search(db[que], score) # score 이상이 되는 개수를 찾기 위해 이진탐색
+            answer.append(len(db[que]) - idx) # len(db[que])에서 idx를 빼면 해당 조건을 만족하는 개수이므로 answer에 append
+        else: # 점수가 아닌 부분이 db에 없다면
+            answer.append(0) # 0 append
 
     return answer
