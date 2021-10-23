@@ -42,10 +42,12 @@
     
 #     return answer
 
+# info의 모든 요소를 -가 포함될 수 있는 모든 경우로 변환 즉, 0, 1, 2, 3번째 요소에 -이 들어갈 수 있으므로 (0, 1, 2, 3)으로 만들 수 있는 모든 경우를 구함(조합)
+
 from collections import defaultdict
 from itertools import combinations
 
-def binary_search(scores, target):
+def binary_search(scores, target): # lower bound 알고리즘
     start, mid, end = 0, 0, len(scores)
     while start < end:
         mid = (start + end) // 2
@@ -58,25 +60,29 @@ def binary_search(scores, target):
     return start
 
 def solution(info, query):
-    db = defaultdict(list)
+    db = defaultdict(list) # 모든 경우를 저장할 dict, 조건들이 겹칠 수 있으므로 defaultdict을 사용하여 value를 리스트로 변환
     for i in info:
         i = i.split()
+        # 점수와 점수 아닌 부분으로 나눔
         score = int(i[-1])
         applicant = i[:-1]
-        for pick in range(5):
-            for combi in list(combinations(range(4), pick)):
-                tmp = applicant[:]
-                for c in combi:
+        for pick in range(5): # 0 ~ 4개를 뽑을 수 있으므로 반복
+            for combi in list(combinations(range(4), pick)): # pick만큼 뽑고 모든 요소 순회
+                tmp = applicant[:] # applicant의 값이 변하면 안되므로 copy
+                for c in combi: # "-"를 넣음
                     tmp[c] = "-"
-
+                
+                # 해당 경우를 문자열로 변환 후 score값 append
+                # 즉, 점수가 아닌 부분이 key, 점수인 부분이 value 리스트의 요소가 됨
                 db[" ".join(tmp)].append(score)
 
-    for key in db:
+    for key in db: # 이진탐색을 하기 위해 모든 value 리스트 오름차순 정렬
         db[key].sort()
 
     answer = []
     for q in query:
-        que = q.replace("and", "").split()
+        que = q.replace("and", "").split() # q에서 and를 없애고 리스트로 변환
+        # 
         score = int(que[-1])
         que = " ".join(que[:-1])
         if que in db:
