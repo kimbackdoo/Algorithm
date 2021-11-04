@@ -22,21 +22,34 @@
 #             return i+1
 
 # deque 라이브러리를 사용하여 연산 속도 향상
+# from collections import deque
+
+# def solution(priorities, location):
+#     answer = 0
+
+#     queue = deque([(v, i) for i, v in enumerate(priorities)])
+#     # 모든 우선순위를 계산하는 것이 아닌 중간에 원하는 location이 있을 때까지만 반복
+#     while True:
+#         item = queue.popleft() # 처음 요소부터 pop, 최대값이면 pop 후 append 연산 진행 안함
+
+#         if queue and item[0] < max(queue)[0]: # queue가 비어있지 않고 item[0]의 요소가 queue의 max값의 첫번째 요소보다 작다면
+#             queue.append(item) # 맨 뒤에 append
+#         else:
+#             answer += 1
+#             if item[1] == location: # item[1]이 원하는 location이면 break
+#                 break
+
+#     return answer
+
 from collections import deque
 
 def solution(priorities, location):
+    queue = deque([(p, i) for i, p in enumerate(priorities)])
     answer = 0
-
-    queue = deque([(v, i) for i, v in enumerate(priorities)])
-    # 모든 우선순위를 계산하는 것이 아닌 중간에 원하는 location이 있을 때까지만 반복
-    while True:
-        item = queue.popleft() # 처음 요소부터 pop, 최대값이면 pop 후 append 연산 진행 안함
-
-        if queue and item[0] < max(queue)[0]: # queue가 비어있지 않고 item[0]의 요소가 queue의 max값의 첫번째 요소보다 작다면
-            queue.append(item) # 맨 뒤에 append
-        else:
-            answer += 1
-            if item[1] == location: # item[1]이 원하는 location이면 break
-                break
-
-    return answer
+    while queue:
+        if queue[0][0] >= max(queue)[0]: # queue 첫번째 요소의 중요도가 queue 중요도 최대값보다 크거나 같다면
+            answer += 1 # 카운팅
+            if queue.popleft()[1] == location: # 해당 queue popleft 후 해당 요소의 인덱스 값이 location이랑 같다면
+                return answer # return
+        else: # queue에 해당 요소보다 큰 중요도가 있다면
+            queue.append(queue.popleft()) # 제일 뒤로 
