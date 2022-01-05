@@ -18,21 +18,38 @@
         
 #     return sorted(answer) # 가장 높은 점수를 받은 사람이 여럿일 수 있으므로 오름차순 정렬
 
-def solution(answers):
-    gg1 = [1, 2, 3, 4, 5]
-    gg2 = [2, 1, 2, 3, 2, 4, 2, 5]
-    gg3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+# def solution(answers):
+#     gg1 = [1, 2, 3, 4, 5]
+#     gg2 = [2, 1, 2, 3, 2, 4, 2, 5]
+#     gg3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     
-    cnt1, cnt2, cnt3 = 0, 0, 0
+#     cnt1, cnt2, cnt3 = 0, 0, 0
+#     for i in range(len(answers)):
+#         if answers[i] == gg1[i % len(gg1)]: cnt1 += 1
+#         if answers[i] == gg2[i % len(gg2)]: cnt2 += 1
+#         if answers[i] == gg3[i % len(gg3)]: cnt3 += 1
+
+#     answer = []
+#     tmp = [cnt1, cnt2, cnt3] # 1번, 2번, 3번 사람들이 맞춘 점수를 리스트에 저장
+#     for person, score in enumerate(tmp): # enumerate을 이용하여 점수와 index 묶음
+#         if score == max(tmp): # 점수가 가장 높다면
+#             answer.append(person+1) # 해당 사람 
+
+#     return answer
+
+def solution(answers):
+    loswer = [[1, 2, 3, 4, 5], [2, 1, 2, 3, 2, 4, 2, 5], [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]] # 수포자1, 2, 3을 2차원 리스트로 관리
+    check = [0] * 3
     for i in range(len(answers)):
-        if answers[i] == gg1[i % len(gg1)]: cnt1 += 1
-        if answers[i] == gg2[i % len(gg2)]: cnt2 += 1
-        if answers[i] == gg3[i % len(gg3)]: cnt3 += 1
-
+        if answers[i] == loswer[0][i % 5]: check[0] += 1
+        if answers[i] == loswer[1][i % 8]: check[1] += 1
+        if answers[i] == loswer[2][i % 10]: check[2] += 1
+    
     answer = []
-    tmp = [cnt1, cnt2, cnt3] # 1번, 2번, 3번 사람들이 맞춘 점수를 리스트에 저장
-    for person, score in enumerate(tmp): # enumerate을 이용하여 점수와 index 묶음
-        if score == max(tmp): # 점수가 가장 높다면
-            answer.append(person+1) # 해당 사람 
-
-    return answer
+    # 수포자가 3명 밖에 없으므로 enumerate보다 각각 구하는게 시간적인 측면에서 빠름
+    max_score = max(check)
+    if check[0] == max_score: answer.append(1)
+    if check[1] == max_score: answer.append(2)
+    if check[2] == max_score: answer.append(3)
+    
+    return answer # answer는 이미 오름차순 정렬되어 있으므로 다시 정렬안해도 됨
