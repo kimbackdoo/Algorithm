@@ -14,16 +14,31 @@
     
 #     return n - len(lostSet)
 
-def solution(n, lost, reserve):
-    lost.sort()
-    reserve.sort()
-    for r in reserve:
-        if r in lost: # r이 lost에 속한다면
-            lost.remove(r)
-        # 본인 체육복을 읽어버리면 본인이 입는다
-        elif r in lost and r-1 not in reserve: # r-1이 lost에 속하면서, r-1이 reserve에 속하지 않는다면
-            lost.remove(r)
-        elif r+1 in lost and r+1 not in reserve: # r+1이 lost에 속하면서, r+1이 reserve에 속하지 않는다면
-            lost.remove(r)
+# def solution(n, lost, reserve):
+#     lost.sort()
+#     reserve.sort()
+#     for r in reserve:
+#         if r in lost: # r이 lost에 속한다면
+#             lost.remove(r)
+#         # 본인 체육복을 읽어버리면 본인이 입는다
+#         elif r in lost and r-1 not in reserve: # r-1이 lost에 속하면서, r-1이 reserve에 속하지 않는다면
+#             lost.remove(r)
+#         elif r+1 in lost and r+1 not in reserve: # r+1이 lost에 속하면서, r+1이 reserve에 속하지 않는다면
+#             lost.remove(r)
             
-    return n - len(lost)
+#     return n - len(lost)
+
+def solution(n, lost, reserve):
+    set_reserve, set_lost = set(reserve) - set(lost), set(lost) - set(reserve)
+    
+    answer = 0
+    for l in set_lost:
+        # remove, discard 메소드의 차이는 discard는 해당 원소가 없어도 에러는 발생시키지 않는다. 따라서 discard 메소드가 더 유연함
+        # l - 1 이 set_reserve에 속한다면 discard 메소드를 이용하여 해동 원소 제거
+        if (l - 1) in set_reserve: set_reserve.discard(l - 1)
+        # l + 1 이 set_reserve에 속한다면 discard 메소드를 이용하여 해동 원소 제거
+        elif (l + 1) in set_reserve: set_reserve.discard(l + 1)
+        # 체육복을 빌릴 수 없으면 count
+        else: answer += 1
+    
+    return n - answer
