@@ -18,16 +18,15 @@
 #     return sorted(set(map(sum, combinations(numbers, 2)))) # map 결과는 set으로 만들고 오름차순 정렬
 
 # 백트레킹 풀이, dfs 알고리즘 이용
-
 def solution(numbers):
-    def dfs(case, pick, idx): # dfs 정의
-        if len(case) == pick: # 뽑은 경우가 pick와 같다면
-            answer.add(sum(case)) # answer에 case의 합 추가
+    def dfs(case, pick, idx, depth): # dfs 정의
+        if depth == pick: # depth가 pick와 같다면 즉, pick 만큼 뽑았다면
+            answer.add(case) # answer에 추가
             return # 재귀 탈출
         
-        for i in range(idx, len(numbers)): # numbers의 모든 요소를 순회하면서 모든 경우 탐색
-            dfs(case + [numbers[i]], pick, i + 1) # dfs 탐색
+        for i in range(idx, len(numbers)): # numbers의 모든 요소를 순회하면서 모든 경우의 수 탐색
+            dfs(case + numbers[i], pick, i + 1, depth + 1) # dfs 탐색
     
     answer = set()
-    dfs([], 2, 0)
+    dfs(0, 2, 0, 0)
     return sorted(answer)
