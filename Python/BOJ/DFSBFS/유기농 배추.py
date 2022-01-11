@@ -41,6 +41,7 @@ def bfs(x, y, n, m): # bfs 정의
   move = [(0, 1), (0, -1), (1, 0), (-1, 0)] # 상하좌우 정의
   queue = deque()
   queue.append((x, y))
+  land[x][y] = 0
   while queue:
     x, y = queue.popleft()
     for i in range(4):
