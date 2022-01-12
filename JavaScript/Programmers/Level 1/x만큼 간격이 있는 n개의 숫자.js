@@ -18,5 +18,5 @@
 function solution(x, n) {
     // 길이가 n인 배열을 만들고 x로 채움
     // map 메소드를 이용하여 x씩 증가하게 만듦
-    return Array(n).fill(x).map((num, index) => num * (index + 1));;
+    return Array(n).fill(x).map((num, index) => num * (index + 1));
 }
