@@ -19,9 +19,13 @@
     
 #     return answer
 
-def solution(arr1, arr2):
-    for i in range(len(arr1)):
-        for j in range(len(arr1[i])):
-            arr1[i][j] += arr2[i][j] # arr1이나 arr2에 행렬 덧셈 값을 바로 저장
+# def solution(arr1, arr2):
+#     for i in range(len(arr1)):
+#         for j in range(len(arr1[i])):
+#             arr1[i][j] += arr2[i][j] # arr1이나 arr2에 행렬 덧셈 값을 바로 저장
             
-    return arr1
+#     return arr1
+
+def solution(arr1, arr2):
+    # zip 함수 2번 사용하여 구함
+    return [[a + b for a, b in zip(a1, a2)] for a1, a2 in zip(arr1, arr2)]
