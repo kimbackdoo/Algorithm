@@ -12,12 +12,16 @@
     
 #     return answer
 
-def solution(left, right):
-    answer = 0
-    for num in range(left, right+1):
-        if int(num**0.5) == num**0.5: # num이 제곱근이 정수이면 약수의 개수는 홀수
-            answer -= num
-        else:
-            answer += num
+# def solution(left, right):
+#     answer = 0
+#     for num in range(left, right+1):
+#         if int(num**0.5) == num**0.5: # num이 제곱근이 정수이면 약수의 개수는 홀수
+#             answer -= num
+#         else:
+#             answer += num
 
-    return answer
+#     return answer
+
+# 리스트 컴프리헨션 이용
+def solution(left, right):
+    return sum([num * (-1 if (num ** 0.5) == int(num ** 0.5) else 1) for num in range(left, right + 1)])
