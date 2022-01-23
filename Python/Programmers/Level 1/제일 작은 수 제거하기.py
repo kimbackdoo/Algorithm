@@ -18,6 +18,10 @@
 # def solution(arr):
 #     return [-1] if remove(arr) == [] else remove(arr)
 
+# def solution(arr):
+#     arr.remove(min(arr))
+#     return [-1] if len(arr) == 0 else arr
+
 def solution(arr):
-    arr.remove(min(arr))
-    return [-1] if len(arr) == 0 else arr
+    arr.remove(min(arr)) # remove 메소드 이용하여 제일 작은수 
+    return arr if arr else [-1]
