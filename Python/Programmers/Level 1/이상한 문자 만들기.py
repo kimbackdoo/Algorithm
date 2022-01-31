@@ -21,11 +21,11 @@
     
 #     return " ".join(answer)
 
-# def upper(word): # 소문자 대문자 변환
-#     if word.islower(): # 소문자일 경우만 대문자로 변환
-#         return chr(ord(word) - 32)
+def upper(word): # 소문자 대문자 변환
+    if word.islower(): # 소문자일 경우만 대문자로 변환
+        return chr(ord(word) - 32)
     
-#     return word
+    return word
 
 def lower(word): # 대문자 소문자 변환
     if word.isupper(): # 대문자일 경우만 소문자로 변환
