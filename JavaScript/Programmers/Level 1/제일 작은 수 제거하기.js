@@ -22,11 +22,20 @@
 // arr의 모든 요소가 중복되지 않음을 이용
 // indexOf 메소드는 인수와 일치하는 첫번째 요소의 인덱스를 반환
 
+// function solution(arr) {
+//     if (arr.length === 1) {
+//         return [-1];
+//     }
+//     // splice 메소드를 이용하여 제일 작은 수 제거, 제일 작은 수를 찾을 때 indexOf 메소드를 이용
+//     arr.splice(arr.indexOf(Math.min(...arr)), 1);
+//     return arr;
+// }
+
 function solution(arr) {
-    if (arr.length === 1) {
-        return [-1];
-    }
-    // splice 메소드를 이용하여 제일 작은 수 제거, 제일 작은 수를 찾을 때 indexOf 메소드를 이용
+    // Math.min과 indexOf 메소드를 이용하여 제일 작은 숫자의 인덱스를 찾고, splice 메소드를 이용하여 제일 작은 수 한개 삭제
+    // splice 메소드의 return 값은 삭제된 요소의 배열을 return 하므로 splice 메소드를 호출한 후의 arr을 return 해야함
     arr.splice(arr.indexOf(Math.min(...arr)), 1);
-    return arr;
+    // !! 연산자를 이용하여 arr.length의 값을 boolean으로 만듦
+    // arr.length가 0이면 false, 0이 아니면 true 이용
+    return !!arr.length ? arr : [-1];
 }
