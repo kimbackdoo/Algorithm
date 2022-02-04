@@ -14,5 +14,6 @@
 // repeat 메소드를 이용하여 문자열 반복
 
 function solution(n) {
+    // repeat 메소드는 인자로 소수가 들어오면 소수점을 잘라내고 정수부분만 반복시킴
     return "수박".repeat((n + 1) / 2).slice(0, n); // repeat 메소드를 이용하여 (n + 1) / 2만큼 반복하고 n까지 slice
 }
