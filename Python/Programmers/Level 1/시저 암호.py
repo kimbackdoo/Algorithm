@@ -18,14 +18,27 @@
     
 #     return answer
 
-def solution(s, n):
-    s = list(s) # s를 리스트로 변환
-    for i in range(len(s)):
-        if s[i].isupper(): # isupper() : 해당 문자가 대문자인지 체크
-            # 위 코드 처럼 알파벳 리스트를 따로 만들지 않고 밀린 인덱스를 구하고 +ord('A')를 하여 A로부터 밀린 암호 문자를 구함
-            # 즉, 아스키코드에서 알파벳 안에서만 암호 문자를 구해낼 수 있음
-            s[i]=chr((ord(s[i])-ord('A')+ n)%26+ord('A'))
-        elif s[i].islower(): # islower() : 해당 문자가 소문자인지 체크
-            s[i]=chr((ord(s[i])-ord('a')+ n)%26+ord('a'))
+# def solution(s, n):
+#     s = list(s) # s를 리스트로 변환
+#     for i in range(len(s)):
+#         if s[i].isupper(): # isupper() : 해당 문자가 대문자인지 체크
+#             # 위 코드 처럼 알파벳 리스트를 따로 만들지 않고 밀린 인덱스를 구하고 +ord('A')를 하여 A로부터 밀린 암호 문자를 구함
+#             # 즉, 아스키코드에서 알파벳 안에서만 암호 문자를 구해낼 수 있음
+#             s[i]=chr((ord(s[i])-ord('A')+ n)%26+ord('A'))
+#         elif s[i].islower(): # islower() : 해당 문자가 소문자인지 체크
+#             s[i]=chr((ord(s[i])-ord('a')+ n)%26+ord('a'))
 
-    return "".join(s)
+#     return "".join(s)
+
+def solution(s, n):
+    # s를 리스트로 변환하지 않고 변수를 두어 계산
+    answer = ""
+    for i in range(len(s)):
+        if s[i].isupper():
+            answer += chr((ord(s[i]) + n - ord("A")) % 26 + ord("A"))
+        elif s[i].islower():
+            answer += chr((ord(s[i]) + n - ord("a")) % 26 + ord("a"))
+        else:
+            answer += " "
+    
+    return answer
