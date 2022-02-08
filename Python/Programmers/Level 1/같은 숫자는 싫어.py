@@ -9,10 +9,18 @@
     
 #     return answer
 
-def solution(arr):
-    answer = []
-    for a in arr:
-        if answer[-1:] == [a]: continue # answer 마지막 요소랑 a랑 비교해서 같으면 continue,
-        answer.append(a) # 다르면 answer에 append
+# def solution(arr):
+#     answer = []
+#     for a in arr:
+#         if answer[-1:] == [a]: continue # answer 마지막 요소랑 a랑 비교해서 같으면 continue,
+#         answer.append(a) # 다르면 answer에 append
 
+#     return answer
+
+def solution(arr):
+    answer = [arr[0]] # arr의 첫번째 요소 answer에 저장
+    for a in arr:
+        if answer[-1] != a: # answer[-1]과 a가 같지 않으면 append
+            answer.append(a)
+    
     return answer
