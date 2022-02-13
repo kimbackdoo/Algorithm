@@ -23,9 +23,8 @@ def dfs(case):
   for i in range(n):
     if not visited[i]: # 첫번째 풀이처럼 배열에서 not in으로 해당 요소가 있는지 없는지 확인하는 것보다 리스트를 통해 방문여부를 확인하는 것이 시간이 더 빠름
       visited[i] = True
-      dfs(case + [numbers[i]])
+      dfs(case + [i + 1])
       visited[i] = False
 
-numbers = range(1, n + 1)
 visited = [False] * n
 dfs([])
