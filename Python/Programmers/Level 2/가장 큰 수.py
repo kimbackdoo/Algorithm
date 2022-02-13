@@ -25,7 +25,11 @@
 #     answer = "".join(map(lambda x: x[1], sorted(new_numbers, reverse=True))) # 내림차순 정렬 후 원래 숫자만 남기고 문자열로 변환
 #     return str(int(answer)) # 0000과 같은 경우를 대비해 int로 변환했다가 다시 str로 변환
 
+# def solution(numbers):
+#     numbers = list(map(str, numbers)) # 모든 요소를 문자열로 변환
+#     numbers.sort(key=lambda x: x * 3, reverse=True) # numbers의 모든 요소를 길이가 3이상으로 만든 후 내림차순 정렬
+#     return str(int("".join(numbers))) # numbers를 문자열로 변환 후 int로 변환 후 str로 변환
+
 def solution(numbers):
-    numbers = list(map(str, numbers)) # 모든 요소를 문자열로 변환
-    numbers.sort(key=lambda x: x * 3, reverse=True) # numbers의 모든 요소를 길이가 3이상으로 만든 후 내림차순 정렬
-    return str(int("".join(numbers))) # numbers를 문자열로 변환 후 int로 변환 후 str로 변환
+    # 위 코드를 한줄로 줄임
+    return str(int("".join(sorted(map(str, numbers), key=lambda x: (x * 4)[:4], reverse=True))))
