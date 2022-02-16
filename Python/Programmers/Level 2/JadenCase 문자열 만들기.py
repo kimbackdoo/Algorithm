@@ -1,4 +1,5 @@
 # s를 공백을 기준으로 split 후 capitalize를 이용하여 첫단어만 대문자로 변환
+# title과 capitalize는 다름
 
 # def solution(s):
 #     s = s.split(" ")
