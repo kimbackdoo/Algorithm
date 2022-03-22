@@ -23,15 +23,31 @@
         
 #     return arr[0]
 
-# 정렬이 되어 있을 경우만
-def gcd(a, b): # 유클리드 호제법
-    while b: # b가 0이상일 경우만
-        a, b = b, a % b # a에 b를 넣고, b에 a%b 값을 넣어 반복
+# # 정렬이 되어 있을 경우만
+# def gcd(a, b): # 유클리드 호제법
+#     while b: # b가 0이상일 경우만
+#         a, b = b, a % b # a에 b를 넣고, b에 a%b 값을 넣어 반복
 
+#     return a
+
+# def solution(arr):
+#     for i in range(len(arr) - 1):
+#         arr[i+1] = (arr[i] * arr[i+1]) // gcd(arr[i], arr[i+1]) # 리스트에서 i+1에 최소공배수를 계속해서 구해나감
+
+#     return arr[-1] # 리스트의 마지막 요소가 N개의 최소공배수가 됨
+
+def gcd(a, b): # 유클리드 호제법을 이용하여 최대공약수 구현
+    while b > 0:
+        a, b = b, a % b
+    
     return a
 
-def solution(arr):
-    for i in range(len(arr) - 1):
-        arr[i+1] = (arr[i] * arr[i+1]) // gcd(arr[i], arr[i+1]) # 리스트에서 i+1에 최소공배수를 계속해서 구해나감
+def lcm(a, b): # 최소공배수 함수로 분리
+    return a * b // gcd(a, b)
 
-    return arr[-1] # 리스트의 마지막 요소가 N개의 최소공배수가 됨
+def solution(arr):
+    while len(arr) > 1:
+        a, b = arr.pop(), arr.pop()
+        arr.append(lcm(max(a, b), min(a, b)))
+        
+    return arr[0]
