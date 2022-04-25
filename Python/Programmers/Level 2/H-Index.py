@@ -1,4 +1,4 @@
-# h-index =>역순 정렬 후 max(f(n) >= i)
+# h-index => 역순 정렬 후 max(f(n) >= i)
 # 즉, f(n)이 i랑 같거나 작아지는 순간이 h-index가 됨
 
 def solution(citations):
