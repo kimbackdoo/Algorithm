@@ -39,7 +39,7 @@
 //     return answer.filter(num => num === target).length; // 만들어진 answer에서 target과 같은 요소만 필터링 후 길이 return
 // }
 
-// reduce 메소드를 사용하는 것보다 for of 문 사용하는 것이 속도가 조금 더 
+// for of 문 사용
 
 function solution(numbers, target) {
     let answer = [0];
