@@ -1,4 +1,4 @@
-// 각 기능이 배포될 수 있는 날짜를 구하고 각 기능이 배포될 때 몇개의 기능과 함께 배포되는지 count
+// 각 기능이 배포될 수 있는 날짜를 구하고 각 기능이 배포될 때 몇 개의 기능과 함께 배포되는지 count
 
 function solution(progresses, speeds) {
     const result = progresses.map((progress, i) => Math.ceil((100 - progress) / speeds[i])); // map 메소드를 이용하여 각 기능이 배포될 수 있는 날짜 구함
