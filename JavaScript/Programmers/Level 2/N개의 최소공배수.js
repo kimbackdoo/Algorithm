@@ -18,7 +18,7 @@
 //     return arr[0]; // n개의 최소공배수 return
 // }
 
-function gcd(a, b) { // 유클리드 호제법 재귀로 구현
+function gcd(a, b) { // 유클리드 호제법, 재귀로 구현
     return a % b ? gcd(b, a % b) : b;
 }
 
