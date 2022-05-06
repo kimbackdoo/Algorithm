@@ -9,7 +9,7 @@ function solution(numbers) {
             if (!(num % i)) return false; // 중간에 나누어 떨어지는 숫자가 있으면 소수가 아니므로 return false
         }
         
-        return true; // 소수일 경우 return true
+        return true; // 소수일 경우 true return
     }
     
     function dfs(p, depth) { // dfs 구현
