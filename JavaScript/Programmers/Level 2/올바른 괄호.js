@@ -1,4 +1,4 @@
-// "(", ")"의 개수가 똑같은지 확인하면 됨, stack 사용
+// "(", ")"의 개수가 똑같은지 확인하면 된다, stack 사용
 
 function solution(s){
     const answer = [];
