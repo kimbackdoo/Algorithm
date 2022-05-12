@@ -5,7 +5,7 @@
 
 // function solution(numbers) {
 //     // numbers의 모든 요소를 [요소, 4자리 늘린 요소]로 mapping
-//     // new Array를 이용하여 배열의 크기를 4로 지정하고, fill 메소드를 이용하여 모든 요소를 num으로 채움,
+//     // new Array를 이용하여 배열의 크기를 4로 지정하고, fill 메소드를 이용하여 모든 요소를 num으로 채움
 //     // 이후 join 메소드를 이용하여 문자열로 변환 후 slice 메소드를 이용하여 4자리만 잘라냄
 //     const answer = numbers.map(num => [num + "", new Array(4).fill(num + "").join("").slice(0, 4)])
 //         .sort((a, b) => b[1] - a[1]) // 매핑한 결과 배열에서 4자리로 늘린 요소를 기준으로 내림차순 정렬
