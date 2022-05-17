@@ -15,7 +15,7 @@
 //     return !answer.length ? 1 : 0; // answer의 길이가 0이라면 1, 아니면 0 return
 // }
 
-// s를 배열로 변환하지 않고, for of 문을 이용
+// s를 배열로 변환하지 않고, for of 문을 이용한다.
 
 function solution(s) {
     const answer = [];
