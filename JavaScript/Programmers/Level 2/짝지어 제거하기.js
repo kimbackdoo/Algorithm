@@ -5,7 +5,7 @@
 //     const answer = []; // 짝을 확인할 스택
 //     [...s].forEach(w => { // 전개문법을 이용하여 s를 배열로 변환 후, forEach 메소드를 이용하여 s의 모든 요소 순회
 //         if (answer.length && answer[answer.length - 1] === w) { // answer가 비어있지 않고, answer의 마지막 값과 w가 같다면
-//             answer.pop(); // pop()
+//             answer.pop(); // answer pop()
 //             return; // forEach의 인수는 callback 함수이므로 continue가 아닌 return으로 현재 요소 순회 종료
 //         }
         
