@@ -1,4 +1,4 @@
-// numbers의 숫자를 더하거나 빼서 target이 되는 개수를 세면 된다.
+// numbers의 숫자를 더하거나 빼서 target이 되는 개수를 세면 됨
 // dfs 알고리즘을 적용하여 더하거나 뺄 수 있는 모든 경우를 찾고, target 개수 count
 
 // function solution(numbers, target) {
