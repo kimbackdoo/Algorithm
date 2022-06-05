@@ -1,4 +1,4 @@
-// s에서 최소값과 최대값을 찾으면 됨
+// s에서 최소값과 최대값을 찾으면 된다.
 
 // function solution(s) {
 //     s = s.split(" ").map((item) => Number(item)); // s를 공백을 기준으로 split, 이후 s의 모든 요소를 숫자로 변환
