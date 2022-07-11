@@ -7,7 +7,7 @@ function solution(dartResult) {
     let num = ""; // 0 ~ 10까지의 점수를 처리하기 위해 문자열
     const answer = []; // 결과값을 담을 배열
     for (let dart of dartResult) {
-        if (!isNaN(dart)) { // dart가 숫자면 num에 dart를 이어나감
+        if (!isNaN(dart)) { // dart가 숫자면 num에 dart를 이어나가면 됨
             num += dart;
         } else if (dart in bonus) { // dart가 보너스 점수에 해당한다면 보너스 점수 계산
             answer.push((+num) ** bonus[dart]);
