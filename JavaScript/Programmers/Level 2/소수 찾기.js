@@ -1,4 +1,4 @@
-// numbers로 만들 수 있는 모든 경우를 탐색하고 해당 숫자가 소수인지 아닌지 확인
+// numbers로 만들 수 있는 모든 경우를 탐색하고 해당 숫자가 소수인지 아닌지 확인한다.
 // dfs 알고리즘을 이용하여 numbers로 만들 수 있는 경우 탐색
 
 function solution(numbers) {
