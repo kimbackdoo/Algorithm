@@ -1,4 +1,4 @@
-// 1부터 s.length / 2까지 문자열을 압축시킨 후 제일 짧은 길이 반환
+// 1부터 s.length / 2까지 문자열을 압축시킨 후 제일 짧은 길이 반환함
 // s.length / 2인 이유는 s.length / 2보다 클 경우에는 압축될 수 없으므로 s.length / 2까지만 압축하고 비교
 // function solution(s) {
 //     let answer = s.length; // 최대값은 s.length이므로 초기값 설정
