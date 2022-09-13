@@ -1,4 +1,4 @@
-// 문제 요구에 맞게 구현
+// 문제 요구에 맞게 구현하면 됨
 
 // function solution(new_id) {
 //     let answer = new_id.toLowerCase(); // 1단계
