@@ -1,4 +1,4 @@
-// 문제 조건에 따라 구현하면 됨
+// 문제 조건에 따라 구현하면 된다.
 
 // 문제에서 요구하는 메시지로 변환해주는 함수
 function getMessage(userNickName, action) {
