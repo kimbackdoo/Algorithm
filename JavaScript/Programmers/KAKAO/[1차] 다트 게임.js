@@ -1,4 +1,4 @@
-// 문제 요구에 맞게 구현
+// 문제 요구에 맞게 구현하면 됨
 
 function solution(dartResult) {
     const bonus = {S: 1, D: 2, T: 3}; // 보너스 점수 객체
