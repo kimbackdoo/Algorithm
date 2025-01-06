@@ -1,6 +1,5 @@
 // numbers의 숫자를 더하거나 빼서 target이 되는 개수를 세면 된다.
 // dfs 알고리즘을 적용하여 더하거나 뺄 수 있는 모든 경우를 찾고, target 개수 count
-
 // function solution(numbers, target) {
 //     function dfs(result, idx) { // dfs 알고리즘 구현
 //         if (idx === numbers.length) { // idx가 numbers의 길이와 같다면
@@ -25,7 +24,6 @@
 // 예를 들어, numbers가 [1, 1, 1, 1, 1]이라면
 // [0] -> [1, -1] -> [0, 2, -2, 0] -> [-1, 1, 1, 3, -3, -1, -1, 1] -> ...
 // 위와 같이 모든 경우를 확인하고 target인 경우만 필터림하면 됨
-
 // function solution(numbers, target) {
 //     let answer = [0]; // 배열의 초기값 0으로 설정
 //     numbers.forEach(num => { // forEach 메소드를 이용하여 numbers의 모든 요소 순회
@@ -40,17 +38,32 @@
 // }
 
 // for of 문 사용
-
-function solution(numbers, target) {
-    let answer = [0];
-    numbers.forEach(num => {
-        const tmp = [];
-        for (let a of answer) {
-            tmp.push(a + num);
-            tmp.push(a - num);
-        }
-        answer = tmp;
-    });
+//dp
+// function solution(numbers, target) {
+//     let answer = [0];
+//     numbers.forEach(num => {
+//         const tmp = [];
+//         for (let a of answer) {
+//             tmp.push(a + num);
+//             tmp.push(a - num);
+//         }
+//         answer = tmp;
+//     });
     
-    return answer.filter(num => num === target).length;
+//     return answer.filter(num => num === target).length;
+// }
+
+// dp
+function solution(numbers, target) {
+    let answer = [0]
+    
+    numbers.forEach((number) => {
+        const tmp = []
+        answer.forEach((cachedNumber) => {
+            tmp.push(...[cachedNumber + number, cachedNumber - number])
+        })
+        answer = tmp
+    })
+    
+    return answer.filter((number) => number === target).length;
 }
