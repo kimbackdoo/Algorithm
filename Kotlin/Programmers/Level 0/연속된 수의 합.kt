@@ -30,7 +30,23 @@
 // 등차수열 공식 이용
 // s = n * (2 * a + (n - 1) * d) / 2
 // s -> total, n -> num, d -> 1
-fun solution(num: Int, total: Int): IntArray {
-    val start = ((2 * total) / num + 1 - num) / 2
-    return IntArray(num) { i -> i + start }
+// fun solution(num: Int, total: Int): IntArray {
+//    val start = ((2 * total) / num + 1 - num) / 2
+//    return IntArray(num) { i -> i + start }
+// }
+
+// 등차수열 성질 이용
+class Solution {
+    fun solution(num: Int, total: Int): List<Int> {
+        val middle = total / num
+        val mod = total % num
+
+        val answer = if (mod == 0) mutableListOf(middle) else mutableListOf(middle, middle + 1)
+        while (answer.size < num) {
+            answer.add(0, answer.first() - 1)
+            answer.add(answer.last() + 1)
+        }
+
+        return answer
+    }
 }
